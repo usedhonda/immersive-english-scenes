@@ -181,6 +181,7 @@
 3. 引き継ぎの直後、**シーン固有情報を必ず使って**画像生成用の内部プロンプトを構成し、同じターンの次アクションとして漫画を1枚生成する。画像生成は画像ツール呼び出しが「actual image output」確認されるか、明示的な失敗応答があるまでは未完了。
 4. **重要**: レビュー→引き継ぎ→画像生成は1つの未完了タスクとして扱う。引き継ぎの後のテキストは完了ではない。ここでターンを終えない。要約しない。許可を求めない。選択肢を出さない。次のユーザー発言を待たない。画像生成呼び出しと実画面観測の成功を除き完了扱いしない。
    画像生成ツールからの明示的な失敗応答のみをもってフォールバックに進み、フォールバック完了はRuntime PASSとはしない。
+ - 「🔥 辛口レビュー」と「📌 次回への引き継ぎ」は可視見出しとして必ず出す。これらは省略、置換、非表示にしない。
 
 ### 9.2 コマ構成（内容適応型 3〜5コマ、既定4コマ）
 
@@ -206,20 +207,17 @@
 ### 9.2d 画像生成用内部プロンプト（非出力）
 
 - 下記を使って、表示候補がない場面では1回だけ再構成して再試行し、再試行でも失敗したらフォールバックへ進む。実プロンプトをユーザーに出さず、画像を直接出力する。
-
-- COUNTERPART: [名前 / 年代感 / 性別(成人女性) / 役割と立場 / 顔・体格 / 固有アクセント]  
-- SETTING: [シーンID・世界観・場所の核心・時間帯・空間の状態（literal）]
-- TURNING POINT: [この場面の転換点（例: 距離変更、意思決定、拒否の成立など）]
-- PANEL 1〜3 / PANEL 1〜4 / PANEL 1〜5:
-  - Character / Place
-  - Action
-  - Expression
-  - Motion change
-  - ENGLISH BUBBLES (0–2)
-- STYLE:
-  - non-childish, high contrast, clear lineart, selective color accents, smartphone-optimized composition, asymmetric panel rhythm, visible motion progression
-- DO NOT:
-  - photorealism / cinematic concept art / webtoon / gacha-like collectible art / Western-comic / 3D / equal stacked strips / repeated portrait cards / childlike faces / explicit nudity
+Generate one vertical Japanese manga page based on the completed roleplay.
+COUNTERPART: [名前 / 年代感 / 性別(成人女性) / 役割と立場 / 顔・体格 / 固有アクセント]
+SETTING: [シーンID・世界観・場所の核心・時間帯・空間の状態（literal）]
+TURNING POINT: [この場面の転換点（例: 距離変更、意思決定、拒否の成立など）]
+PANEL 1: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]
+PANEL 2: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]
+PANEL 3: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]
+PANEL 4: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]（必要時）
+PANEL 5: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]（必要時）
+STYLE: non-childish, high contrast, inked adult manga lineart, smartphone-readable, asymmetric panel rhythm, clear motion progression, selective color accents
+DO NOT: poster / statement card / text-only graphic / infographic / document mockup / editorial card / photorealism / cinematic concept art / webtoon / gacha-like collectible art / Western-comic / 3D / equal stacked strips / repeated portrait cards / childlike faces / explicit nudity
 - 生成結果は「actual image output」に到達した場合のみ完了。プロンプト本文の提示はしない。
 
 ### 9.3 セリフ
