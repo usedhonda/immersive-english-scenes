@@ -1,77 +1,53 @@
 # 没入型英会話 — Immersive English Scenes
 
-ChatGPTのProjectで、物語の登場人物とすぐに英会話を始められるシーンライブラリです。
+このProjectは、英会話の実践を「会話の相手役」を通じて続けるためのライブラリです。
 
-- 320の基本シーン
-- 1シーンにつき4展開、合計1,280バリエーション
-- 通常3択は必ず「実務・現実系」「現代ドラマ系」「非日常・発想系」から1枠ずつ
-- 現代の仕事、医療、法律、接客、恋愛、家族、旅行
-- 学園、異世界、人外、怪異、宮廷、裏社会、近未来、もしもの歴史
-- 通常は一人の相手役と会話
-- 音声で「1」「2」「3」と選ぶと、すぐ英語で開始
-- 会話終了後は日本語で辛口レビュー、続けてご褒美の1ページ漫画
+- 320基本シーン／1,280バリエーション
+- 通常3択は実務・現実系・現代ドラマ系・非日常・発想系の3枠を必ず1枠ずつ選出
+- 相手役は成人女性を中心に、1ターン1問いで会話を進行
+- 会話終了後は辛口レビュー→「📌 次回への引き継ぎ」（5軸）を出力
+- 2回目以降、保存データがある場合はメニュー前に最大2行だけ表示
+- 学習記録は自然終了＋6発話以上後に反映。課題昇格は直近3回中2回観測で有効化
 
-## ダウンロード
+## インストール（公開配布）
 
-[immersive-english-scenes.zip](immersive-english-scenes.zip)をダウンロードして展開します。
+配布用ZIP: [`immersive-english-scenes.zip`](immersive-english-scenes.zip)
 
-展開後に使うものは次の2つです。
+### 手順
 
-- [`PROJECT_INSTRUCTIONS.txt`](PROJECT_INSTRUCTIONS.txt) — Project settingsへ貼る
-- [`UPLOAD_THESE_5_FILES`](UPLOAD_THESE_5_FILES) — 5ファイルすべてをProjectへ追加する
+1. `immersive-english-scenes.zip` を展開。
+2. 次の5ファイルをProjectへ追加:
+   - `PROJECT_INSTRUCTIONS.txt`
+   - `UPLOAD_THESE_5_FILES/IES_v8_00_START_HERE.md`
+   - `UPLOAD_THESE_5_FILES/IES_v8_01_SCENE_CATALOG.xlsx`
+   - `UPLOAD_THESE_5_FILES/IES_v8_02_SCENE_CARDS.md`
+   - `UPLOAD_THESE_5_FILES/IES_v8_03_TUTOR_RULES.md`
+   - `UPLOAD_THESE_5_FILES/IES_v8_04_DESIGN_RATIONALE.md`
+3. Project settings の instructions に `PROJECT_INSTRUCTIONS.txt` を貼る。
+4. 初回チャットで短い挨拶または希望を送ると3択が出ます。
 
-## ChatGPTへ設置する
+### 運用要点
 
-### 1. 新しいProjectを作る
+- 2回目以降で保存データがある場合、3択前に最大2行表示:
+  - 覚えていること
+  - 今回の選定
+- 引き継ぎ反映は3択中**1枠のみ**。残り2枠は新奇性／多様性優先で弱点偏重しない
+- 利用者の明示訂正は推定値より優先。推定更新は自然終了後で6発話以上蓄積時のみ反映
+- 明示的な終了コマンドは不要。自然な終了を検知するとレビューへ移行
+- レビュー→引き継ぎ→漫画は同一ターン継続トランザクション（画像呼び出しが使えるなら次行動は漫画）
 
-ChatGPTのサイドバーで「New project」を選び、名前を「没入型英会話」などにします。
+## 漫画ルール（日本語漫画表現）
 
-選べる場合は、作成時に「Project-only memory」を選びます。
+- 対象は成人女性1人を固定。学習者本人は描画対象外。
+- 漫画は日本語漫画文法（非対称/リズム変化のコマ配置、隣接コマで順次モーション）で描写。
+- 同一コマ構図・同一構図反復を避け、静止画連結ではなく連続動作を見せる。
+- 写真風／シネマチック／webtoon／モバイルガチャ風／静止画ポートレート再利用／3Dは除外。
 
-### 2. Project instructionsを貼る
+## 検証について
 
-1. Project右上のメニューを開きます。
-2. 「Project settings」を選びます。
-3. 「Project instructions」に [`PROJECT_INSTRUCTIONS.txt`](PROJECT_INSTRUCTIONS.txt) の全文を貼ります。
-4. 保存します。
-
-### 3. 5ファイルを追加する
-
-[`UPLOAD_THESE_5_FILES`](UPLOAD_THESE_5_FILES)にある次の5ファイルを、すべてProjectへ追加します。
-
-1. `IES_v8_00_START_HERE.md`
-2. `IES_v8_01_SCENE_CATALOG.xlsx`
-3. `IES_v8_02_SCENE_CARDS.md`
-4. `IES_v8_03_TUTOR_RULES.md`
-5. `IES_v8_04_DESIGN_RATIONALE.md`
-
-### 4. 会話を始める
-
-Project内で新しいチャットを開き、`Hi.`または`こんにちは`と送ります。
-
-短い日本語の3択が出たら、文字または音声で「1」「2」「3」のどれかを選びます。選択の確認や日本語での再説明を挟まず、相手役が英語で話し始めます。
-
-希望を最初から指定することもできます。
-
-- `仕事もの、ふつう、10分`
-- `現代恋愛、やさしい、ヒント多め`
-- `異種族、しっかり、交渉中心`
-- `裏社会、短め`
-- `前回と全然違うもの`
-
-## 音声
-
-各候補には、会話の雰囲気に合うおすすめ音声が表示されます。音声は自動では切り替わらないため、必要な場合だけChatGPTの音声設定で変更します。Mapleのままでも利用できます。
-
-## 設置できたか確認する
-
-次の順に動けば設置完了です。
-
-1. 最初の発言に対して3つの候補が出る
-2. 「1」「one」「一番」などで選べる
-3. 選んだ直後に英語の会話が始まる
-4. 相手役が具体的な質問や選択肢を出して会話を進める
-5. 別れの挨拶や目的達成で会話を閉じ、辛口レビューへ移る
+- `PROJECT_INSTRUCTIONS.txt` と5ファイルの一致、`immersive-english-scenes.zip` の同梱、静的契約項目は verification で確認できます。
+- ただし、レビュー直後に同一ターンで漫画を呼ぶ運用はライブE2E観測が必要です（同一ターン連鎖は静的検証のみでは保証不可）。
+- 指示文字数はUI上限余裕（安全マージン付き）を意識して運用。実機文字数を上回るため、公開文面は上限を下回るよう更新。
 
 ## 公式ヘルプ
 
