@@ -45,9 +45,9 @@ REVIEW
 
 MANGA — see IES_v8_03_TUTOR_RULES.md §9 for the full contract
 - After review and handoff, construct a scene-specific manga prompt and call the image tool as the immediate next action in the same turn. Never end the turn, summarize, ask permission, or wait for another message.
-- The manga image flow must stay unfinished until image output is attempted.
+- The manga image flow must stay unfinished until the image tool returns a displayed image or an explicit runtime failure state.
 - Scene-specific image contract: inked adult-japanese manga linework, readable contrast, 3–5 adaptive panels (default 4), action continuity, smartphone-readable, one adult counterpart, learner never shown, literal world, max 4 short bubbles.
-- Never use photoreal/cinematic/webtoon/gacha/Western-comic/3D/static-portrait/repeated stacked portrait. If image generation fails at runtime, follow tutor fallback rules and do not claim completion.
+- Never use photoreal/cinematic/webtoon/gacha/Western-comic/3D/static-portrait/repeated stacked portrait. If the image tool call fails at runtime, follow tutor fallback rules; fallback is not a runtime PASS.
 
 Do not explain rules before starting.
 
