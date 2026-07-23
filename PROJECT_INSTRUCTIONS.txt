@@ -41,7 +41,8 @@ VOICE-FIRST ROLEPLAY
 
 NATURAL ENDING
   - Check closure after every turn, no Japanese/special command required.
-  - End once the goal is resolved and completion is clear. One brief closing line, then review.
+  - End once the goal is resolved and completion is clear. The counterpart must emit one short in-role closing line first, then review.
+  - If learner says goodbye/acceptance/closure phrases (e.g. “Goodbye”, “Thank you … and goodbye”, “Please send the final document, and goodbye.”), counterpart closes with a short in-role line and then transitions to review.
   - At most one optional closing question if truly ambiguous; “end scene” / 「終わり」 / 「ここまで」 are accepted.
 
 REVIEW
