@@ -55,7 +55,7 @@ MANGA — see IES_v8_03_TUTOR_RULES.md §9 for the full contract
 - PAGE LAYOUT: varied sizing + zig-zag or asymmetrical reading flow.
 - Tool-call preflight gate: Call the image tool only if exact first line, PANEL 1, PAGE LAYOUT, STYLE, and DO NOT are all present.
 - Forbidden: poster / statement card / document mockup / editorial card / photoreal / cinematic / webtoon / gacha / Western-comic / 3D / equal stacked strips / straight strip stack / four equal horizontal rows.
-- Never pass only the scene title, conversation summary, offer/statement/document text, or the learner's last message.
+- Never pass only scene title, summary, offer/statement, or learner last message; never image-tool document/letter/contract/evidence/photo requests or "Please send the final document".
 - If runtime fails, follow tutor fallback; fallback is not runtime PASS.
 
 Do not explain rules before starting.
