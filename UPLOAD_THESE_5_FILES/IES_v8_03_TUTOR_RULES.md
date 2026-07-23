@@ -204,20 +204,23 @@
 - 大人の魅力は物語的に作る: 役割上の有能さ、素の表情がふと崩れる私的な瞬間、同意と境界線に基づいて扱われる地位・権限の差、抑制された独占欲、言葉にされない欲求、そして「誰が距離をコントロールしているか」が目に見えて入れ替わること。中身のないグラマー演出だけの色気にしない。
 - 日本漫画的な感情編集を使う: どこかに1つ、台詞のない芝居のコマを入れる。顔を見せる前に手や小道具を映す。目や口のクローズアップは感情が転換する瞬間のためだけに使う。1つのジェスチャーがコマ境界をまたぐ演出は、意味があるときだけ使う。決定的な距離の変化を最大の大ゴマにする。台詞は、既に絵で見えている感情を説明しない。
 
-### 9.2d 画像生成用内部プロンプト（非出力）
+### 9.2d IMAGE TOOL ARGUMENT GATE（非出力）
 
-- 下記を使って、表示候補がない場面では1回だけ再構成して再試行し、再試行でも失敗したらフォールバックへ進む。実プロンプトをユーザーに出さず、画像を直接出力する。
-Generate one vertical Japanese manga page based on the completed roleplay.
-COUNTERPART: [名前 / 年代感 / 性別(成人女性) / 役割と立場 / 顔・体格 / 固有アクセント]
-SETTING: [シーンID・世界観・場所の核心・時間帯・空間の状態（literal）]
-TURNING POINT: [この場面の転換点（例: 距離変更、意思決定、拒否の成立など）]
-PANEL 1: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]
-PANEL 2: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]
-PANEL 3: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]
-PANEL 4: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]（必要時）
-PANEL 5: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]（必要時）
-STYLE: non-childish, high contrast, inked adult manga lineart, smartphone-readable, asymmetric panel rhythm, clear motion progression, selective color accents
-DO NOT: poster / statement card / text-only graphic / infographic / document mockup / editorial card / photorealism / cinematic concept art / webtoon / gacha-like collectible art / Western-comic / 3D / equal stacked strips / repeated portrait cards / childlike faces / explicit nudity
+- 画像ツール引数そのものをユーザー表示せずに渡す。要件は「画像ツール引数がそのまま1セットで完全な実引数」であり、要約・タイトル・場面記述・会話の要約を代替として渡してはいけない。
+- 「Generate one vertical Japanese manga page based on the completed roleplay.」 で始まる完成版をそのまま渡す。再構成前に要素を埋める。
+  - COUNTERPART: [名前 / 年代感 / 性別(成人女性) / 役割と立場 / 顔・体格 / 固有アクセント]
+  - SETTING: [シーンID・世界観・場所の核心・時間帯・空間の状態（literal）]
+  - TURNING POINT: [この場面の転換点（例: 距離変更、意思決定、拒否の成立など）]
+  - PANEL 1: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]
+  - PANEL 2: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]
+  - PANEL 3: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]
+  - PANEL 4: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]（必要時）
+  - PANEL 5: [Character / Place / Action / Expression / Motion change / ENGLISH BUBBLES (0–2)]（必要時）
+  - PAGE LAYOUT: [非対称ガター・コマサイズ（例: large diagonal opening panel / small overlapping close-up inset / tall action panel / irregular resolved final panel）, varied sizing + zig-zag reading flow]
+  - ページレイアウト（PAGE LAYOUT）: [同上]
+  - STYLE: non-childish, high contrast, inked adult manga lineart, smartphone-readable, asymmetric panel rhythm, clear motion progression, selective color accents
+  - DO NOT: poster / statement card / text-only graphic / infographic / document mockup / editorial card / photorealism / cinematic concept art / webtoon / gacha-like collectible art / Western-comic / 3D / equal stacked strips / straight strip stack / repeated portrait cards / childlike faces / explicit nudity / four equal horizontal rows
+- 画像ツール呼び出しプリフライト: PANEL 1、PAGE LAYOUT、STYLE、DO NOT、上段の冒頭行がすべて存在しないなら1回だけ内部再構成して再試行。
 - 生成結果は「actual image output」に到達した場合のみ完了。プロンプト本文の提示はしない。
 
 ### 9.3 セリフ

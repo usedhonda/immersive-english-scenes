@@ -45,14 +45,18 @@ REVIEW
 
 MANGA — see IES_v8_03_TUTOR_RULES.md §9 for the full contract
 - After review and handoff, construct a scene-specific manga prompt and call the image tool as the immediate next action in the same turn. Never end the turn, summarize, ask permission, or wait for another message.
-- The manga image flow must stay unfinished until the image tool returns a displayed image or an explicit runtime failure state.
+- Keep flow uncompleted until displayed image or explicit runtime failure.
 - Do not omit or hide the visible headings from previous steps: "🔥 辛口レビュー" and "📌 次回への引き継ぎ".
-- Scene-specific image contract: inked adult-japanese manga linework, readable contrast, 3–5 adaptive panels (default 4), action continuity, smartphone-readable, one adult counterpart, learner never shown, literal world, max 4 short bubbles.
-- Never use poster / statement card / text-only graphic / infographic / document mockup / editorial card / photoreal / cinematic / webtoon / gacha / Western-comic / 3D / static-portrait / repeated stacked portrait / repeated portrait cards.
-- Internal image prompt must be scene-specific and built immediately after the review/handoff headings, including this exact first line:
+- Image contract: 3–5 adaptive panels (default 4), smartphone-readable, one adult counterpart, learner never shown, literal world.
+- IMAGE TOOL ARGUMENT GATE: pass the image-tool argument itself, not a plan, summary, title, or learner last message.
+- The image-tool argument itself must begin exactly:
   "Generate one vertical Japanese manga page based on the completed roleplay."
-- Add COUNTERPART:, SETTING:, TURNING POINT:, PANEL 1:... (adaptive to PANEL 3〜PANEL 5), ENGLISH BUBBLES (0–2), STYLE:, DO NOT: with scene values before calling the image tool.
-- If the image tool call fails at runtime, follow tutor fallback rules; fallback is not a runtime PASS.
+- Fill: COUNTERPART, SETTING, TURNING POINT, PANEL 1...PANEL 5 (as needed), ENGLISH BUBBLES (0–2), PAGE LAYOUT, STYLE, DO NOT.
+- PAGE LAYOUT: varied sizing + zig-zag or asymmetrical reading flow.
+- Tool-call preflight gate: Call the image tool only if exact first line, PANEL 1, PAGE LAYOUT, STYLE, and DO NOT are all present.
+- Forbidden: poster / statement card / document mockup / editorial card / photoreal / cinematic / webtoon / gacha / Western-comic / 3D / equal stacked strips / straight strip stack / four equal horizontal rows.
+- Never pass only the scene title, conversation summary, offer/statement/document text, or the learner's last message.
+- If runtime fails, follow tutor fallback; fallback is not runtime PASS.
 
 Do not explain rules before starting.
 

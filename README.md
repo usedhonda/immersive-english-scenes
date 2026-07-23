@@ -35,6 +35,7 @@
 - 利用者の明示訂正は推定値より優先。推定更新は自然終了後で6発話以上蓄積時のみ反映
 - 明示的な終了コマンドは不要。自然な終了を検知するとレビューへ移行
 - レビュー→引き継ぎ→漫画は同一ターン継続トランザクション。引き継ぎ後は即時にシーン固有プロンプトを使って1枚の漫画生成を試行し、画像出力が見えるまで完了しない。
+- 画像生成は「画像ツール引数」を同一ターンでそのまま渡す。引数は `Generate one vertical Japanese manga page based on the completed roleplay.` で始まり、COUNTERPART/SETTING/TURNING POINT/PANEL/ENGLISH BUBBLES/PAGE LAYOUT/STYLE/DO NOT を scene value で埋める。
 
 ## 漫画ルール（日本語漫画表現）
 
