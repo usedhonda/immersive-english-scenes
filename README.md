@@ -16,14 +16,14 @@
 ### 手順
 
 1. `immersive-english-scenes.zip` を展開。
-2. 次の5ファイルをProjectへ追加:
-   - `PROJECT_INSTRUCTIONS.txt`
-   - `UPLOAD_THESE_5_FILES/IES_v8_00_START_HERE.md`
-   - `UPLOAD_THESE_5_FILES/IES_v8_01_SCENE_CATALOG.xlsx`
-   - `UPLOAD_THESE_5_FILES/IES_v8_02_SCENE_CARDS.md`
-   - `UPLOAD_THESE_5_FILES/IES_v8_03_TUTOR_RULES.md`
-   - `UPLOAD_THESE_5_FILES/IES_v8_04_DESIGN_RATIONALE.md`
-3. Project settings の instructions に `PROJECT_INSTRUCTIONS.txt` を貼る。
+2. `UPLOAD_THESE_6_FILES` 内の次の6ファイルをProject sourcesへ追加:
+   - `IES_v9_00_START_HERE.md`
+   - `IES_v9_01_SCENE_CATALOG.xlsx`
+   - `IES_v9_02_SCENE_CARDS.md`
+   - `IES_v9_03_TUTOR_RULES.md`
+   - `IES_v9_04_DESIGN_RATIONALE.md`
+   - `IES_v9_05_MANGA_PROMPT_BIBLE.md`
+3. Project settings の instructions に `PROJECT_INSTRUCTIONS.txt` の全文を貼る。このファイルはProject sourcesへアップロードするファイルではありません。
 4. 初回チャットで短い挨拶または希望を送ると3択が出ます。
 
 ### 運用要点
@@ -34,19 +34,21 @@
 - 引き継ぎ反映は3択中**1枠のみ**。残り2枠は新奇性／多様性優先で弱点偏重しない
 - 利用者の明示訂正は推定値より優先。推定更新は自然終了後で6発話以上蓄積時のみ反映
 - 明示的な終了コマンドは不要。自然な終了を検知するとレビューへ移行
-- レビュー→引き継ぎ→漫画は同一ターン継続トランザクション。引き継ぎ後は即時にシーン固有プロンプトを使って1枚の漫画生成を試行し、画像出力が見えるまで完了しない。
-- 画像生成は「画像ツール引数」を同一ターンでそのまま渡す。引数は `Generate one vertical Japanese manga page based on the completed roleplay.` で始まり、COUNTERPART/SETTING/TURNING POINT/PANEL/ENGLISH BUBBLES/PAGE LAYOUT/STYLE/DO NOT を scene value で埋める。
+- 会話終了後は、相手役の締め→辛口レビュー→引き継ぎ→漫画確認までをテキストだけで出す。次の明確な「はい／yes」の後にだけ画像を生成する。
+- 肯定後は追加確認をせず、`IES_v9_05_MANGA_PROMPT_BIBLE.md` に従って内部ページ設計を作り、画像ツールを呼ぶ。
 
 ## 漫画ルール（日本語漫画表現）
 
-- 対象は成人女性1人を固定。学習者本人は描画対象外。
-- 漫画は日本語漫画文法（非対称/リズム変化のコマ配置、隣接コマで順次モーション）で描写。
-- 同一コマ構図・同一構図反復を避け、静止画連結ではなく連続動作を見せる。
-- 写真風／シネマチック／webtoon／モバイルガチャ風／静止画ポートレート再利用／3Dは除外。
+- 3〜6コマの縦長1ページ。英語教材のため、上から下、同一段内は左から右。
+- 全コマ同じ大きさの四角形や均等な2×2グリッドを禁止し、見せ場の決めゴマを明確に大きくする。
+- 通常、斜め、縦長、横長、重なり、インセット、枠外突破、枠なし、タチキリを場面の意味に応じて選ぶ。
+- レビューで示した模範英文を決め台詞にし、その一言で相手の表情・距離・判断・状況が変わる短編へ再構成する。会話の羅列にはしない。
+- Gペン風の線、黒ベタ、網点、カケアミ、白抜きを使う白黒漫画原稿。アニメの一枚絵、カラー、セル塗り、ポスター、ビジュアルノベルCGは除外。
+- 相手役は同じ成人女性として固定。学習者は必要な場合だけ、匿名の肩越し・後ろ姿・手元・主観視点で描く。
 
 ## 検証について
 
-- `PROJECT_INSTRUCTIONS.txt` と5ファイルの一致、`immersive-english-scenes.zip` の同梱、静的契約項目は verification で確認できます。
+- `PROJECT_INSTRUCTIONS.txt` と6ファイルの一致、`immersive-english-scenes.zip` の同梱、静的契約項目は verification で確認できます。
 - 画像生成の同ターン試行自体は verification で契約テキストとフォールバック有無を検証できますが、実際に表示された画像が出たかどうかはライブE2E実行でのみ PASS です。
 - 指示文字数はUI上限（実機検証時点）を超えない範囲で管理しています（実装上の目安）。
 
